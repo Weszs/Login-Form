@@ -5,84 +5,49 @@
 <meta charset="UTF-8">
 <title>Student Login</title>
 
-<style>
+<link rel="stylesheet" href="css/styles.css">
 
-body{
-font-family: Arial;
-text-align: center;
-margin-top: 100px;
-}
-
-form{
-width:300px;
-margin:auto;
-}
-
-input{
-width:100%;
-padding:10px;
-margin:10px 0;
-}
-
-button{
-padding:10px;
-width:100%;
-}
-
-#message{
-margin-top:20px;
-font-weight:bold;
-}
-
-</style>
 </head>
 
 <body>
 
-<h1>Student Login</h1>
+<div class="container">
 
-<form id="loginForm">
+<form id="studentForm">
 
-<input type="text" id="studentID" placeholder="Student ID">
+<h2>Student Login</h2>
 
-<input type="password" id="password" placeholder="Password">
+<label>First Name</label>
+<input type="text" id="firstName">
+<div class="error" id="firstNameError">First name is required</div>
+
+<label>Last Name</label>
+<input type="text" id="lastName">
+<div class="error" id="lastNameError">Last name is required</div>
+
+<label>Email</label>
+<input type="email" id="email">
+<div class="error" id="emailError">Enter a valid email</div>
+
+<label>Password</label>
+<input type="password" id="password">
+<div class="error" id="passwordError">Password must be at least 6 characters</div>
+
+<label>Student ID</label>
+<input type="text" id="studentID">
+<div class="error" id="studentIDError">Student ID is required</div>
 
 <button type="submit">Login</button>
 
 </form>
 
-<p id="message"></p>
+<div id="successMessage" class="success">
+Login successful! Welcome student.
+</div>
 
-<script>
+</div>
 
-const form = document.getElementById("loginForm");
-const message = document.getElementById("message");
-
-form.addEventListener("submit", function(event){
-
-event.preventDefault();
-
-const id = document.getElementById("studentID").value.trim();
-const password = document.getElementById("password").value.trim();
-
-if(id === "" || password === ""){
-message.textContent = "All fields are required";
-message.style.color = "red";
-return;
-}
-
-if(password.length < 6){
-message.textContent = "Password must be at least 6 characters";
-message.style.color = "red";
-return;
-}
-
-message.textContent = "Login successful";
-message.style.color = "green";
-
-});
-
-</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
